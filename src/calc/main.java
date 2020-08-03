@@ -19,7 +19,46 @@ class okno extends JFrame {
 	private double p1=0,p2=0;
 	private int oper=0;
 	
-	private void btnClick(JButton btn) {}
+	private void btnClick(JButton btn) {
+		String str = btn.getText();
+		System.out.println(str);
+		if (str == "Exit") System.exit(0);
+		else if (str == "C") {
+			System.out.println("p1:  " + p1 + "  p2  " + p2);
+			text.setText("");
+			p1 = p2 = 0;
+			System.out.println("p1:  " + p1 + "  p2  " + p2);
+		} else if (str == "=") {
+			if (p2 == 0) p2 = Integer.parseInt(text.getText());
+			if (oper == 1) text.setText("" + (p1+p2));
+			if (oper == 2) text.setText("" + (p1-p2));
+			if (oper == 3) text.setText("" + (p1*p2));
+			if (oper == 4) text.setText("" + (p1/p2));
+			
+		} else if (str == "+") {
+			oper = 1;
+			p1 = Double.parseDouble(text.getText());
+			text.setText("");
+			
+		} else if (str == "-") {
+			oper = 2;
+			p1 = Double.parseDouble(text.getText());
+			text.setText("");
+			
+		} else if (str == "*") {
+			oper = 3;
+			p1 = Double.parseDouble(text.getText());
+			text.setText("");
+			
+		} else if (str == "/") {
+			oper = 4;
+			p1 = Double.parseDouble(text.getText());
+			text.setText("");
+			
+		} else {
+			text.setText("" + text.getText() + str);
+		}
+	}
 	
 	public okno() {
 		JPanel pan = new JPanel();
